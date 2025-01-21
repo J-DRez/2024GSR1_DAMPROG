@@ -9,7 +9,6 @@ public class FuncionRecursiva {
      * de k en k utilizando recursividad. Una combinación es un subconjunto de tamaño k 
      * extraído de un conjunto de elementos.
      * 
-     * 
      * Requisitos:
      * 
      * El usuario debe ingresar n (el tamaño del conjunto) y k (el tamaño del subconjunto).
