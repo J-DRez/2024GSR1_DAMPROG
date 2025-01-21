@@ -1,4 +1,4 @@
-package entregas2025;
+package entregas2025.actividad05;
 
 public class SobrecargaFunciones {
 
