@@ -1,3 +1,5 @@
+package sesion20250109;
+
 public class EjemploFunciones03 {
     public static void main(String[] args) {
         System.out.println(mayor(3,8));
