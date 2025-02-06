@@ -48,6 +48,7 @@ public class Fraccion {
         } else {
             System.out.println("El denominador no puede ser 0.");
         }
+        simplificar();
     }
 
     /**
@@ -107,4 +108,63 @@ public class Fraccion {
     public String toString() {
         return numerador + "/" + denominador;
     }
+
+    /**
+     * Calcula el máximo común divisor de dos números.
+     * 
+     * @param a El primer número.
+     * @param b El segundo número.
+     * @return El máximo común divisor de los dos números.
+     */
+    private int calcularMCD(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    /**
+     * Simplifica la fracción.
+     */
+    public void simplificar() {
+        int mcd = calcularMCD(Math.abs(numerador), Math.abs(denominador));
+        numerador /= mcd;
+        denominador /= mcd;
+    }
+
+    /*
+     * Añade a la clase Fraccion los siguientes métodos:
+     * 
+     * · sumar(Fraccion frac): devuelve una nueva fracción que suma la fracción actual con la que se pasa como parámetro.
+     * · restar(Fraccion frac): devuelve una nueva fracción que resta la fracción actual con la que se pasa como parámetro.
+     * · multiplicar(Fraccion frac): devuelve una nueva fracción que multiplica la fracción actual con la que se pasa como parámetro.
+     * · dividir(Fraccion frac): devuelve una nueva fracción que divide la fracción actual con la que se pasa como parámetro.
+     */
+    
+    public Fraccion sumar(Fraccion frac) {
+        int newNum = this.numerador * frac.denominador + frac.numerador * denominador;
+        int newDen = this.denominador * frac.denominador;
+        return new Fraccion(newNum, newDen);
+    }
+
+    public Fraccion restar(Fraccion frac) {
+        int newNum = this.numerador * frac.denominador - frac.numerador * denominador;
+        int newDen = this.denominador * frac.denominador;
+        return new Fraccion(newNum, newDen);
+    }
+
+    public Fraccion multiplicar(Fraccion frac) {
+        int newNum = this.numerador * frac.numerador;
+        int newDen = this.denominador * frac.denominador;
+        return new Fraccion(newNum, newDen);
+    }
+
+    public Fraccion dividir(Fraccion frac) {
+        int newNum = this.numerador * frac.denominador;
+        int newDen = this.denominador * frac.numerador;
+        return new Fraccion(newNum, newDen);
+    }
+
 }
