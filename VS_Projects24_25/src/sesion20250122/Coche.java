@@ -15,7 +15,7 @@ public class Coche {
         this.velocidad = 0;
     }
 
-    // Los getters nos ayudan a obtener 
+    // Los getters nos ayudan a obtener el valor de los atributos de un objeto.
     public String getMarca(){
         return marca;
     }
