@@ -6,6 +6,7 @@ public class DescuentoSobrePrecio {
     private double precioOriginal;
     private double descuento;
 
+    //Constructor
     public DescuentoSobrePrecio (String nombreProducto, double precioOriginal, double descuento) {
         this.nombreProducto = nombreProducto;
         this.precioOriginal = precioOriginal;
