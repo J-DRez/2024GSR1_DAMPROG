@@ -8,21 +8,20 @@ public class RegistroNombres {
         ArrayList<String> nombres = new ArrayList<>();
         //La variable 'nombre' la inicializamos fuera del bucle para poder usarla luego dentro
         String nombre;
-        System.out.println("Introduce los nombres que quieras añadir a la lista. Para finalizar, escribe 'fin'.");
-        //Bucle para introducir los nombres, que además comprueba que no estén introducidos y lo finaliza
-        while (true) {
+        System.out.println("\nIntroduce los nombres que quieras añadir a la lista. Para finalizar, escribe 'fin'.");
+        //Bucle para introducir los nombres.
+        //Comprueba que el array no contenga el nombre introducido y que no sea la palabra 'fin'.
+        //De ser así lo añade y permite seguir introduciendo nombres.
+        //Si ya existe, salta el error y sigue con el bucle.
+        do {
             nombre = sc.nextLine();
-            //Cuando el usuario introduce la palabra 'fin', paramos el bucle con el 'break'
-            if (nombre.equalsIgnoreCase("fin")){
-                break;
-            }
-            //Comprueba que el array no contenga el nombre introducido, de ser así lo añade, y si ya existe, salta el error y sigue con el bucle
-            if (!nombres.contains(nombre)){
+            if (!nombres.contains(nombre)&&!nombre.equalsIgnoreCase("fin")){
                 nombres.add(nombre);
-            } else {
+            } else if (nombres.contains(nombre)&&!nombre.equalsIgnoreCase("fin")){
                 System.out.println("El nombre '" + nombre + "' ya existe.");
             }
-        }
+        } while (!nombre.equalsIgnoreCase("fin"));
+
         System.out.println("La lista de nombres introducidos es:\n" + nombres);
         sc.close();
     }
