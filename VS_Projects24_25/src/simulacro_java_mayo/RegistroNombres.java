@@ -8,21 +8,34 @@ public class RegistroNombres {
         ArrayList<String> nombres = new ArrayList<>();
         //La variable 'nombre' la inicializamos fuera del bucle para poder usarla luego dentro
         String nombre;
-        System.out.println("\nIntroduce los nombres que quieras añadir a la lista. Para finalizar, escribe 'fin'.");
+        boolean fin;
+        System.out.println("Introduce los nombres que quieras añadir a la lista. Para finalizar, escribe 'fin'.");
         //Bucle para introducir los nombres.
         //Comprueba que el array no contenga el nombre introducido y que no sea la palabra 'fin'.
         //De ser así lo añade y permite seguir introduciendo nombres.
         //Si ya existe, salta el error y sigue con el bucle.
         do {
-            nombre = sc.nextLine();
-            if (!nombres.contains(nombre)&&!nombre.equalsIgnoreCase("fin")){
-                nombres.add(nombre);
-            } else if (nombres.contains(nombre)&&!nombre.equalsIgnoreCase("fin")){
-                System.out.println("El nombre '" + nombre + "' ya existe.");
-            }
-        } while (!nombre.equalsIgnoreCase("fin"));
+            nombre = sc.nextLine().trim();
+            //Esto da valor 'true' si nombre = true, y false si no lo es.
+            //Se puede simplificar el operador ternario quitando '? true : false' y hará lo mismo
+            fin = (nombre.equalsIgnoreCase("fin") ? true : false);
 
-        System.out.println("La lista de nombres introducidos es:\n" + nombres);
+            if (!fin) {
+                if (!nombres.contains(nombre)){
+                nombres.add(nombre);
+                } else {
+                System.out.println("El nombre '" + nombre + "' ya existe.");
+                }
+            }
+
+        } while (!fin);
+
+        System.out.println("\nLa lista de nombres introducidos es:\n");
+        
+        for (String listaNombres : nombres) {
+        System.out.println("- " + listaNombres);
+        }
+
         sc.close();
     }
 }

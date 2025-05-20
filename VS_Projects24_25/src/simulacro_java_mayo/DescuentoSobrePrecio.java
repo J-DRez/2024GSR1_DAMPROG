@@ -14,13 +14,13 @@ public class DescuentoSobrePrecio {
     }
 
     //Método descuento
-    public double precioFinalConDescuento() {
+    private double precioFinalConDescuento() {
         double precioFinal = precioOriginal - (precioOriginal * descuento / 100);
         return Math.round(precioFinal * 100.0) / 100.0;
     }
 
     //Método detalles
-    public void mostrarDetalles() {
+    private void mostrarDetalles() {
         System.out.println("\n_________________________________________");
         System.out.println("\nNombre del producto: " + nombreProducto);
         System.out.println("Precio: " + precioOriginal + "$");
